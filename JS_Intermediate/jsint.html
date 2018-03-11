@@ -1,0 +1,83 @@
+<!-- Assignment: JavaScript Intermediate
+
+Complete the following challenges. 
+All of your code should be in one HTML file that is well commented to indicate what each block of code 
+is doing and which problem you are solving. Don't forget to test your code as you go!
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <body>
+        <script>
+        // Part I
+        // Create a function called starString() that takes a number and returns a string of that many *. 
+        // For example: 
+        // let stars = starString(8)
+        // If we console.log(stars) we should see ******** printed in our terminal.
+        function starString(num){
+            var str1 = "";
+            for (i = 0; i < num; i++){
+                str1+='*';
+            }
+            return (str1);
+        }
+        let stars = starString(8);
+        //console.log(stars);
+
+        // Part II
+        // Create a function called drawStars() that takes an array of numbers and prints out *.
+        // let x = [4, 6, 1, 3, 5, 7, 25]
+        // drawStars(x) should print the following in when invoked:
+        // ****
+        // ******
+        // *
+        // ***
+        // *****
+        // *******
+        // *************************
+        function drawStars(array){
+            for (i = 0; i < array.length; i++){
+                console.log('*'.repeat(array[i]));
+            }
+        }
+        let x = [4, 6, 1, 3, 5, 7, 25];
+        //drawStars(x);
+
+        // Part III
+        // Modify the function above. Allow an array containing integers and strings 
+        //to be passed to the drawStars() function. When a string is passed, instead of displaying *, 
+        //display the first letter of the string according to the example below. 
+        //You may use the .toLowerCase() string method for this part.
+        // For example:
+        // let x = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]
+        // drawStars(x) should print the following in the terminal:
+        // ****
+        // ttt
+        // *
+        // mmmmmmm
+        // *****
+        // *******
+        // jjjjjjjjjjj
+        function drawStars2(array){
+            for (i = 0; i< array.length; i++){
+                if (typeof(array[i])=='number'){
+                    console.log('*'.repeat(array[i]));
+                }
+                else{
+                    //console.log('here');
+                    console.log(array[i].charAt(0).toLowerCase().repeat(array[i].length));
+                }
+            }
+        }  
+        let x2 = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"];
+        //let x2 = [4,5];
+        drawStars2(x2);
+    </script>
+    </body>
+</html>

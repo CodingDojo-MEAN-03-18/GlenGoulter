@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <body>
+       <!-- Assignment: JavaScript Math
+
+        Complete the below challenges using JavaScript's Math object.
+
+        Math 1
+        Write a function called zero_negativity(). This function should take an array. 
+        Return true if the input array contains no negative numbers, return false if it does.
+       -->
+       <script>
+            function zero_gravity(array){
+                for (i = 0; i < array.length; i++){
+                    if (Math.sign(array[i])<0){
+                        return (false);
+                    }
+                }
+                return (true);
+            }
+            let x = zero_gravity([1,2,3]);
+           // console.log(x);
+      
+        // Math 2
+        // Write a function called is_even(). This function should take a number. 
+        // Return true if the input number is even, return false if the number is odd.
+            
+            function is_even(number){
+                if (number % 2 == 0){
+                    console.log('is_even says even');
+                    return (true);
+                }
+                else{
+                    return (false);
+                }
+            }
+            //let x1 = is_even(2);
+            // console.log(x1);
+            //let x2 = is_even(3);
+            // console.log(x2);
+
+        // Math 3
+        // Write a function called how_many_even(). This function should take an array. 
+        // Return the total number of elements in the array that are even. You may call is_even() to solve this.
+           function how_many_even(array) {
+               let count = 0;
+               for (i = 0; i< array.length; i++){
+                if (is_even(array[i])==true){   
+                    console.log('its even');
+                    count++;
+                }
+               }    
+               return (count);
+           }
+           //let x3 = how_many_even([1,1,3]);
+           //console.log(x3);
+
+        // Math 4
+        // Write a function called create_dummy_array(). This function should take a number n. 
+        // Return an array of random numbers between 0 and 9 with the length of n.
+           function create_dummy_array(n){
+               list = [];
+               for (i = 0; i < n; i++){
+                   list.push (Math.floor(Math.random()*11));
+               }
+               return(list);
+           }
+           //let x4 = create_dummy_array(10);
+           //console.log(x4);
+        // Math 5
+        // Write a function called random_choice(). This function should take an array. 
+        // Return a random element of the array, based on its length. 
+        // This function should never return undefined. --> 
+           function random_choice(array){
+               list2=[];
+               return (array[Math.floor(Math.random()*array.length)]);
+           }
+           let x5= random_choice([1,2,3]);
+           console.log(x5);
+
+        </script>
+      
+    </body>
+</html>
+
