@@ -1,0 +1,78 @@
+<!-- Assignment: Ninja Class
+Create a new class called Ninja with the following attributes:
+    name
+    health
+    speed (private)
+    strength (private)
+
+Speed and strength should be 3 by default. Health should be 100 by default.
+
+The Ninja class should have the following methods:
+
+    sayName() - This should log that Ninja's name to the console.  -get
+    showStats() - This should show the Ninja's Strength and Speed, as well as their health. - get
+    drinkSake() - This should add +10 Health to the Ninja -set
+
+Example Outputs
+
+const ninja1 = new Ninja("Hyabusa");
+ninja1.sayName();
+// -> "My ninja name is Hyabusa!"
+ninja1.showStats();
+// -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <body>
+        <script>
+            function Ninja(name){ //everything in this function is private b/c it's in the function scope AND we don't use "this". This is public.
+                //const self = this;
+                let speed = 3;
+                let strength = 3;
+                this.name = name; //public
+                this.health = 100; //public
+            
+                this.showStats = function(){ //This should show the Ninja's Strength and Speed, as well as their health. - get
+                    //remember, speed and strength are private.  THIS here to make this function public.
+                    // console.log(strength);
+                    // console.log(speed);
+                    // console.log(this.health);
+                    console.log('strength: ' +strength+ 'speed: ' +speed+ 'health: ' + this.health);
+                    return this;
+                }
+            }
+
+                
+            //method is outside of class so it's public.
+            Ninja.prototype.sayName = function(){ //This should log that Ninja's name to the console.  -get  //not privatge
+                    console.log("my ninja name is " + this.name);
+                    return this;
+            }
+            Ninja.prototype.drinkSake = function(){  //This should add +10 Health to the Ninja -set //publc var, private method.
+                    //PROTO here means we are making drinkSake the same for every instance.
+                    this.health+=10;
+                    return this;
+                }
+
+                
+            // Example Outputs
+            // const ninja1 = new Ninja("Hyabusa");
+            // ninja1.sayName();
+            // -> "My ninja name is Hyabusa!"
+            // ninja1.showStats();
+            // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3" -->
+            const ninja1 = new Ninja("Glen");
+            ninja1.sayName();
+            //console.log(ninja1.showStats());
+            ninja1.showStats();
+            //ninja1.drinkSake();
+            //ninja1.showStats();
+        </script>
+    </body>
+</html>
