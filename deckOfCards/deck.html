@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <body>
+       <script>
+           class Deck{
+            //    constructor(array){
+            //         this.cardArray = array; 
+            //    }
+               constructor(){
+                    this.cardArray = ['1s','2s','3s','4s','5s','6s','7s','8s','9s','10s','Js','Qs','Ks', '1d','2d','3d','4d','5d','6d','7d','8d','9d','10d','Jd','Qd','Kd','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','Jh','Qh','Kh','1c','2c','3c','4c','5c','6c','7c','8c','9c','10c','Jc','Qc','Kc']; 
+               }
+               shuffle(){
+                    var copy = [], n = this.cardArray.length, i;
+                    console.log(this.cardArray.length);
+                    // While there remain elements to shuffle…
+                    while (n) {
+                        // Pick a remaining element…
+                        i = Math.floor(Math.random() * n--);
+                        // And move it to the new array.
+                        copy.push(this.cardArray.splice(i, 1)[0]);
+                    }
+                    this.cardArray = copy;
+                    console.log(this.cardArray);
+                    return this;
+               }
+
+               reset(){
+                    console.log(`this is the cardArray ${this.cardArray}`);
+                    return new Deck(); //simply return a new deck object containing a fresh deck.
+               }
+
+               get deal(){
+                   //take the shuffled deck and return the card in position 0.
+                   console.log(this.cardArray[0]);
+                   return (this.cardArray.splice(0,1)[0]);
+               }
+           }
+
+           class Player{
+               constructor(name){
+                   this.name = name;
+                   this.hand =[];
+               }
+               discard(){
+                   this.hand.pop();
+               }
+           }
+
+
+           deck = new Deck(); //create a deck
+           shuffled_deck = deck.shuffle(); //shuffled the deck, get a new deck object back that is shuffled.
+           console.log(`shuffled is ${shuffled_deck.cardArray}`);
+           reset_deck = shuffled_deck.reset(); //reset the deck by creating a new deck object.
+           console.log(`the reset deck ${reset_deck.cardArray}`);
+           console.log(shuffled_deck.deal); //git rid of the top card
+           console.log(`shuffled is ${shuffled_deck.cardArray}`); //prove the top card is gone
+
+           p1 = new Player('Glen');
+           console.log(p1);
+           console.log(p1.hand);
+           p1.hand.push(shuffled_deck.deal)
+           console.log(p1.hand);
+           p1.hand.push(shuffled_deck.deal)
+           console.log(p1.hand);
+           p1.hand.push(shuffled_deck.deal)
+           console.log(p1.hand);
+           p1.discard();
+           console.log(p1.hand);
+
+
+       </script> 
+    </body>
+</html>
