@@ -11,10 +11,14 @@
             },
             reduce: function(array, run, state) {
                 let sum = 0;
-                if (state==undefined) {
+                if (state==undefined) { //no memo (state) present, sub array[0] for state and count from the next array element.
+                    for (i = 1; i < array.length; i++){
+                       sum+=(run(array[0],array[i]));
+                    }
+
                     //for (i = 0; i < array.length; i++){
                         //console.log(run(state,array[i]));
-                        sum+=(run(array[0],array[1]));
+                    //    sum+=(run(array[0],array[1]));
                     //}
                     return sum;
                 }
@@ -26,20 +30,44 @@
                 }
                 return sum;
             },
-            find: function() {   
+            find: function(array,run) {   // 1 % 2 == 0 --> false, 2 % 2 == 0 --> true
                 // code here;
+                for (i = 0; i < array.length; i++){
+                    if (run(array[i])){ //if even number found...
+                        return (array[i]);
+                    } //no even number, return undefined.
+                }
+
             },
-            filter: function() { 
+            filter: function(array, run) { 
                 // code here;
+                list = [];
+                for (i = 0; i < array.length; i++){
+                    if (run(array[i])){ //if even number found...
+                        list.push(array[i]);
+                    } 
+                }
+                return list;
             },
-            reject: function() { 
+            reject: function(array, run) { 
                 // code here;
+                list = [];
+                for (i = 0; i < array.length; i++){
+                    if (!(run(array[i]))){ //if even number found...
+                        list.push(array[i]);
+                    } 
+                }
+                return list;
             }
         }
 // you just created a library with 5 methods!
-     //console.log(_glen.map([1,2,3],function(num){return num * 3; }));
-     console.log(_glen.reduce([1,2,3],function(memo,num){return memo + num;},0));
-     console.log(_glen.reduce([1,2,3],function(memo,num){return memo + num;}));
-    //_glen.reduce([1,2,3],function(memo,num){return memo + num;},0); 
+     //console.log(_glen.map([1,2,3],function(num){return num * 3; })); //return a list of original list w all numbers * 3.
+     //console.log(_glen.reduce([1,2,3],function(memo,num){return memo + num;},0)); //sum the list, counting at the 3rd param.
+     console.log(_glen.reduce([1,2,3],function(memo,num){return memo + num;})); // testing where there is no third param.
+     //console.log(_glen.find([1,2,3,4,5,6],function(num){return num % 2 == 0; })); //--> 2 //returns the first even number.
+     //console.log(_glen.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; })); // --> [2, 4, 6] //return an array of all values that pass the turth test, in this case the truth test is for even.
+     //console.log(_glen.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; })); //=> [1, 3, 5] //opposite of filter
+
+    
     </script>
 </html>
