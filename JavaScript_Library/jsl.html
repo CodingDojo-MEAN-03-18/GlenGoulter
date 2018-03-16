@@ -1,0 +1,45 @@
+<html>
+    <script>
+        var _glen = {
+            map: function(array, run) {
+                //code here;
+                list = [];
+                for (i = 0; i < array.length; i++){
+                    list.push(run(array[i]));
+                }
+                return list;
+            },
+            reduce: function(array, run, state) {
+                let sum = 0;
+                if (state==undefined) {
+                    //for (i = 0; i < array.length; i++){
+                        //console.log(run(state,array[i]));
+                        sum+=(run(array[0],array[1]));
+                    //}
+                    return sum;
+                }
+                // code here;
+                
+                for (i = 0; i < array.length; i++){
+                    //console.log(run(state,array[i]));
+                    sum+=(run(state,array[i]));
+                }
+                return sum;
+            },
+            find: function() {   
+                // code here;
+            },
+            filter: function() { 
+                // code here;
+            },
+            reject: function() { 
+                // code here;
+            }
+        }
+// you just created a library with 5 methods!
+     //console.log(_glen.map([1,2,3],function(num){return num * 3; }));
+     console.log(_glen.reduce([1,2,3],function(memo,num){return memo + num;},0));
+     console.log(_glen.reduce([1,2,3],function(memo,num){return memo + num;}));
+    //_glen.reduce([1,2,3],function(memo,num){return memo + num;},0); 
+    </script>
+</html>
