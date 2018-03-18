@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        //THIS BLOCK GETS THE POKE NAME, IMG, TYPES, HEIGHT, WEIGHT
+        var html_str="";
+        var id;
+        
+        for (index=1;index<=2;index++){
+            $('#pokeimg').append(`
+                                <div class="business_card">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png" alt="image" id="${index}">
+                                </div>
+                                `);
+            }
+            //.on syntax (event,childselector,function)
+            //$(document).on("click","img",function(){    
+                //var id=this.id;
+                //$('img').click(function(){
+
+                // $(this).on('click','.business_card',function(){
+                //     var id=$(this).children().attr('id');
+                   
+                $('img').click(function(){    
+                var id=$(this).attr('id');
+                console.log(id);
+                $.get("https://pokeapi.co/api/v2/pokemon/"+id+"/",function(res){
+                    html_str=`<p>name: ${res.name}</p> <p>img:<img src="${res.sprites.front_default}"</p>`;
+                    html_str+=`<p>Types:</p>`;
+                    html_str+=`<ul>`;
+                     
+                    //need to loop through types+`
+                    for (i=0;i<res.types.length;i++){
+                          html_str+="<li>"+res.types[i].type.name+"</li>";
+                    }
+                      html_str+=`</ul>`;
+                      html_str+=`<p>height:${res.height}</p>`;
+                      html_str+=`<p>weight:${res.weight}</p>`;
+                    
+                    $('#pokeinfo').html(html_str);
+                })
+            })
+        })
+    </script>
+
+</head>
+    <body>
+        <div id="pokeimg">
+                
+        </div>
+                
+        </div>
+        <div id="pokeinfo">
+                
+        </div>
+        
+        
+    </body>
