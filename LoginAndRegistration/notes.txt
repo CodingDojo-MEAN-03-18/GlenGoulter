@@ -1,0 +1,51 @@
+Assignment: Login and Registration
+Create a login and registration that uses back-end validation, catches errors, and displays them to the client.
+
+Required Registration Fields:
+email
+first_name
+last_name
+password
+password_confirm
+birthday
+
+Each registration field should have at least one back-end validation on it! Besides password_confirmation.
+
+Email should use a unique:true as one of key:value pairs in the objects schema. 
+How are we going to deal with uniqueness errors (note the error object from unique:true is different!)?
+
+The login form should just have password and email
+
+-1. create the db LoginReg
+-2. create the Schema
+    email
+    first_name
+    last_name
+    password
+    birthday
+
+    2a. create the registration validations
+-    email - a valid email address and Required
+-    first_name - required, at least 1 character
+-    last_name - required, at least 1 character
+-    password - required, at least 1 character
+-    birthday  - required, at least 1 character
+-     password should match pw confirmation
+
+3. Login for the user
+    -3a. create a login form at the index.
+        -email
+        -password
+    -3b. check for the email existence
+    -3c. check if hashed version of the password submitted equals the saved pw (saved pw is hashed)
+
+
+4. After (3) passes, render a page that says -> Welcome!
+   - 1. check to see if there is a user in session
+    - 1a. if in session, render page with hello, <%= user.name =>
+     -1b. if user not in session, render send back to index.
+
+5. revisit some other details
+    1. eliminate "path" in error.
+    2. display error messages on screen.
+    -3. user's registration email should be validated for uniqueness.
