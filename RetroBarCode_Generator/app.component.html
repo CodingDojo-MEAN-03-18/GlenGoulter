@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<p>Retro Bar Code</p>
+
+
+<!-- <div class = 'block' [ngStyle]="{'background-color' : 'red'}" *ngFor='let data of blocks'>
+  {{data}}
+</div> -->
+<div class = 'block' *ngFor='let data of imageArray' [ngStyle]="{'background-color' : data}" >
+    <!-- {{data}} -->
+  </div><br>
+<div class="block" *ngFor="let color of imageArray"   [ngStyle]="{'background-color': color, 'display': 'inline-block' }">
+</div>
+

@@ -1,0 +1,11 @@
+
+<button class = 'block'(click)="onButtonClick(1)" [ngClass]="{on: lastTimeZone === 1}">MST</button>
+<button class = 'block'(click)="onButtonClick(2)" [ngClass]="{on: lastTimeZone === 2}">CST </button>
+<button class = 'block'(click)="onButtonClick(3)" [ngClass]="{on: lastTimeZone === 3}">EST </button>
+<button class = 'block'(click)="onButtonClick(0)" [ngClass]="{on: lastTimeZone === 0}">Clear </button>
+
+
+<!-- {lastTimeZone}} -->
+<p *ngIf = lastTimeZone> {{date|date:'medium' }} </p>
+
+

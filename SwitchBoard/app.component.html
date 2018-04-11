@@ -1,0 +1,14 @@
+
+<!-- <button class = 'block'(click)="onButtonClick(1)" [ngClass]="{on: 1 === 1}">ON</button>
+<button class = 'block'(click)="onButtonClick(2)" [ngClass]="{on: 1 === 1}">ON </button>
+<button class = 'block'(click)="onButtonClick(3)" [ngClass]="{on: 1 === 1}">ON </button>
+<button class = 'block'(click)="onButtonClick(0)" [ngClass]="{on: lastTimeZone === 0}">ON </button> -->
+
+<!-- <button class = 'block'(click)="onButtonClick(label)" [ngClass]="{off: label == 'OFF'}"> {{label}} </button> -->
+<div class = 'block'(click)="onButtonClick(idx)" [ngClass]="{off: data == 'OFF'}" *ngFor='let data of buttons; let idx = index'>
+    {{data}}
+ </div>
+
+<!-- <div class = 'block' *ngFor='let data of imageArray' [ngStyle]="{'background-color' : data}" ></div> -->
+
+

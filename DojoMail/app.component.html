@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+DojoMail
+<table border = 1>
+  <thead>
+    <tr>
+      <td>Email</td>
+      <td>Importance</td>
+      <td>Subject</td>
+      <td>Content</td>
+    </tr>
+    <tr *ngFor='let data of emails'>
+      <td>{{data.email|lowercase}}</td>
+      <td *ngIf = 'data.importance'>High</td>
+      <td *ngIf = '!data.importance'>Low</td>
+      <!-- or
+      <td>
+          <span *ngIf="email.important">High</span>
+          <span *ngIf="!email.important">Low</span>
+      </td> -->
+      <td>{{data.subject}}</td>
+      <td>{{data.content}}</td>
+    </tr>
+  </thead>
+</table>

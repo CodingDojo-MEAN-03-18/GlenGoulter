@@ -1,0 +1,15 @@
+US Timezone Display
+
+Create an app which displays the current time based on the time-zone the user selects as shown below in the wireframe. 
+The most recent button clicked should appear with a yellow background.
+
+Note: Don't worry about having the time-zone be accurate based on the user's physical location, assume your location to be the origin of all users using your app. As a bonus, attempt to present the accurate time-zone, regardless of where we run this application. The purpose of this assignment is to learn how to use the events, data binding, structural and attribute directives.
+
+-1. Display the date and time
+{{ date | date:'short' }} 
+
+2. Add buttons to toggle the time between different time zones
+3. For whichever button is clicked, make its background yellow.
+4. Add a clear button to:   
+     a. clear the datetime text
+     b. clear the yellow background from the timezone button clicked.
