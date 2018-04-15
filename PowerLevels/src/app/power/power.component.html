@@ -1,0 +1,28 @@
+<p>
+  power works!
+</p>
+<!-- {{tasks|json}} -->
+{{power|json}}
+<!-- <form name = 'PowerForm' (submit)="onSubmit()"> -->
+<form name = 'PowerForm'>
+  Initial Power Level 
+  <input 
+    type = 'number' 
+    name = 'powerNumber'
+    
+    min = '1' 
+    max = '100'
+    [(ngModel)]="myNumber"
+  
+  >
+  
+  <!-- <button type = submit>Calculate Powers</button> -->
+  <button (onChange) = 'submit()'>Calculate Powers</button>
+
+</form>
+<!-- <app-human [myTasks]='tasks'> </app-human> -->
+
+<app-human [myNumber]='myNumber'> </app-human>
+<app-saiyan [myNumber]='myNumber'></app-saiyan>
+<!-- <app-human [powers]='power'> </app-human> -->
+
