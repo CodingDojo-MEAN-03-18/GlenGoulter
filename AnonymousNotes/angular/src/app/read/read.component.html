@@ -1,0 +1,7 @@
+<div class = 'wrapper'>
+  <h1>The Notes</h1>
+  <!-- <p *ngFor="let note of notes | order-by-date:'desc'"> -->
+  <p *ngFor="let note of notes">
+    {{note.content}}      {{ note.createdAt | date: 'medium' }}
+  </p>
+</div>
